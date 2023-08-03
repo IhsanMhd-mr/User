@@ -1,16 +1,14 @@
-// const http = require('http');
-// const _ = require('lodash')
+// app.js (continued from step 1)
+// Load userController and set up routes
+const userController = require('./controllers/userController');
 
-// const server = http.createServer((req,res) => {
-//     const num = _.random(0,20);
-//     console.log(num);
-//     console.log('num');
+app.post('/api/users/register', userController.registerUser);
+app.post('/api/users/login', userController.loginUser);
 
-    
-//     console.log(req.url,req.method);
+// Middleware for authentication (using JWT token)
+// ...
 
-// });
-
-// server.listen(3000,'localhost', ()=>{
-//     console.log('listening for requests on port 3000');
-// })
+// Additional routes for profile management
+// app.get('/api/users/profile', /* middleware for authentication */, userController.getUserProfile);
+// app.put('/api/users/profile', /* middleware for authentication */, userController.updateUserProfile);
+// app.delete('/api/users/profile', /* middleware for authentication */, userController.deleteUserAccount);
